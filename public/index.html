@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Icon Parser - Trace ảnh thành SVG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="title-group">
+                <h1>SVG Icon Parser</h1>
+                <p>Chuyển ảnh bitmap (PNG/JPEG/WEBP) thành SVG</p>
+            </div>
+        </header>
+
+        <main class="grid-2">
+            <!-- Left: Input & Preview -->
+            <section class="panel left">
+                <h2>Ảnh đầu vào</h2>
+
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
+                    <label for="fileInput" class="upload-label">
+                        <span>📁 Chọn file hoặc dán ảnh (Ctrl+V)</span>
+                    </label>
+                </div>
+
+                <div id="previewContainer" class="preview-container hidden">
+                    <img id="imagePreview" alt="Preview">
+                    <p id="imageInfo"></p>
+                </div>
+
+                <div class="action-section">
+                    <button id="btnTraceBW" class="btn btn-primary" disabled>
+                        🎨 Trace B/W (Đen trắng)
+                    </button>
+                    <button id="btnTraceColor" class="btn btn-secondary" disabled>
+                        🌈 Trace Color (Nhiều màu)
+                    </button>
+                </div>
+
+                <div id="processingStatus" class="processing-status hidden">
+                    <div class="spinner"></div>
+                    <p>Đang xử lý...</p>
+                </div>
+
+                <div id="errorMessage" class="error-message hidden"></div>
+            </section>
+
+            <!-- Right: Result -->
+            <section class="panel right">
+                <section id="resultSection" class="result-section hidden">
+                    <h2>Kết quả SVG</h2>
+
+                    <div class="result-meta" id="resultMeta"></div>
+
+                    <div class="result-tabs">
+                        <button class="tab-btn active" data-tab="preview">Preview</button>
+                        <button class="tab-btn" data-tab="code">SVG Code</button>
+                    </div>
+
+                    <div class="tab-content active" id="previewTab">
+                        <div id="svgPreview" class="svg-preview"></div>
+                    </div>
+
+                    <div class="tab-content" id="codeTab">
+                        <textarea id="svgCode" readonly></textarea>
+                        <button id="btnCopySVG" class="btn btn-copy">📋 Copy SVG</button>
+                        <span id="copyStatus" class="copy-status hidden">✅ Đã copy!</span>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
