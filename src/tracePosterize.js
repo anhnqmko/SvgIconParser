@@ -17,8 +17,8 @@ async function traceColor(imageBuffer, width, height) {
         const params = {
             steps: 12,
             fill: 4,
-            alphaMax: 1.0,            // Tăng thêm 1 chút -> cực mượt cho trace màu
-            optTolerance: 0.18,       // Trở về giá trị ban đầu để nét thẳng chính xác hơn
+            alphaMax: 1.3,            // Fine-tune Lần 3
+            optTolerance: 0.18,       // Fine-tune Lần 3
         };
         
         potrace.posterize(imageBuffer, params, (err, svg) => {

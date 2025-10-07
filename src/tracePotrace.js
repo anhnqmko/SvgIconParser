@@ -15,10 +15,10 @@ const potrace = require('potrace');
 async function traceBW(imageBuffer, width, height) {
     return new Promise((resolve, reject) => {
         const params = {
-            turdSize: 2.5,              // Trở về giá trị ban đầu
+            turdSize: 3,              // Fine-tune Lần 3
             turnPolicy: potrace.Potrace.TURNPOLICY_MINORITY,
-            alphaMax: 1.0,            // Tăng thêm 1 chút -> cong mượt hơn
-            optTolerance: 0.18,       // Trở về giá trị ban đầu
+            alphaMax: 1.0,            // Fine-tune Lần 3
+            optTolerance: 0.18,       // Fine-tune Lần 3
             threshold: potrace.Potrace.THRESHOLD_AUTO
         };
         
